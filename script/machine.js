@@ -25,10 +25,13 @@ function showOnly(id){
     // console.log("show only cliked");
     const addMoney = document.getElementById("add-money");
     const cashout = document.getElementById("cashout");
+    const addTransfer = document.getElementById("add-transfer-money");
     // console.log(`add money - ${addMoney}, cashout - ${cashout}`);
     // hide all
     addMoney.classList.add("hidden");
     cashout.classList.add("hidden");
+    addTransfer.classList.add("hidden");
+
 
     // show only id jar ache
     const selected = document.getElementById(id);
