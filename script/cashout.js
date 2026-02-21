@@ -6,31 +6,38 @@ document.getElementById("cashout-btn")
         alert("Invalid agent number.");
         return;
     }
-    //get the amount 
+    //2- get the amount 
     const cashoutAmount = getValueFromInput("cashout-amount");
 
-    //get the current balance
-    const balanceElement = document.getElementById("balance");
-    const balance = balanceElement.innerText;
-    console.log(balance);
+    //3- get the current balance
+    // const balanceElement = document.getElementById("balance");
+    // const balance = balanceElement.innerText;
+    // console.log(balance);   eta r dorkar nai karon current balance machine theke get korbe
 
-    //Calculate new balance/numeric conversion
-    const newBalance = Number(balance) - Number(cashoutAmount);
+    const currenqtBalance = getBalance();
+    //4- Calculate new balance/numeric conversion
+    const newBalance = currenqtBalance - Number(cashoutAmount);
     console.log(newBalance);
     if(newBalance < 0){
         alert("Invalid amount.");
+        return;
     }
 
-    //get the pin and verify
+    //5 -get the pin and verify
     const Pin=getValueFromInput("cashout-pin");
 
     if(Pin === "1234"){
         alert("Cashout successful!" + newBalance);
-        balanceElement.innerText = newBalance;
+        // balanceElement.innerText = newBalance;
+        // document.getElementById("balance").innerText = newBalance; reduced kora hoiche r machine theke call kore function anlam
+        setBalance(newBalance);
     }else{
         alert("Invalid Pin. Please try again.");
     }
 })
+
+
+
 
 
 
